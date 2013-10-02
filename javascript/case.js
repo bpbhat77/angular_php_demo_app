@@ -68,6 +68,7 @@ function ReservationController($scope) {
 			method: 'POST',
 			success: function(confirmation) {
 				$scope.reservation.confirmation = confirmation;
+				$scope.$apply();
 				alert("Confirmation number is " + confirmation);
 			}
 		});
@@ -75,14 +76,21 @@ function ReservationController($scope) {
 }
 
 function FeedbackController($scope) {
+	$scope.new_feedback = [{'name' : '', 'comment' : ''}];
+	$scope.comments = [{'name' : 'Someone', 'comment' : 'Something'}];
+
 	$scope.submit_feedback = function() {
 		$.ajax({
-			data: 	'name=' + $scope.new_feedack.name +
+			dataType: 'json',
+			data: 	'name=' + $scope.new_feedback.name +
 					'&comment=' + $scope.new_feedback.comment,
-			url: 	'feedback.php',
+			url: 	'test.php',
 			method: 'POST',
-			sucess: function(msg) {
-				alert(msg);
+			success: function(data) {
+				$scope.$apply(function() {
+					var comments = angular.fromJson(data);
+					$scope.comments = comments;
+				});
 			}
 		});
 	};

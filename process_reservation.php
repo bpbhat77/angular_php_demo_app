@@ -3,7 +3,7 @@
 <!-- CISS298 Web Programming -->
 <!-- September 30 2013 -->
 <!-- process_reservation.php -->
-<? php
+<?php
 	$error_msg = "ERROR";
 	$confirmation = "";
 	error_log(" Name: " + $_POST['name'] +

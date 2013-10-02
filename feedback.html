@@ -1,13 +1,18 @@
 <div id="feedback">
-	<form action='<?php echo '$_SERVER[PHP_SELF]'; ?>' method='post'>
-	  <p>Enter you name: <input type='text' name='name' size='25' /></p>
+	<form name='feedback_form'>
+	  <p>Enter you name: <input type='text' ng-model='new_feedback.name' size='25' /></p>
 	  <p>Enter you comments:<br>
-	    <textarea name='comments' rows='5' cols='40' >
+	    <textarea name='comments' ng-model='new_feedback.comment' rows='5' cols='40' >
 	    </textarea>
 	  </p>
 	  <p>
-	    <input type='submit' name='submit' value='Submit Comments' />
-	    <input type='submit' name='view' value='view all comments' />
+	    <button ng-click='submit_feedback()' ng-disabled='!feedback_form.$valid'>Submit</button>
 	  </p>
 	</form>
+	<div ng-repeat='comment in comments'>
+		<p>
+			<span>{{comment.name}}:</span>
+			<span>"{{comment.comment}}"</span>
+		</p>
+	</div>
 </div>
