@@ -1,4 +1,4 @@
-var cougar_inn_app = angular.module('cougar_inn', ['ui.bootstrap']);
+var cougarInnApp = angular.module('ciApp', ['ui.bootstrap']);
 
 function app_route_config($routeProvider) {
 	$routeProvider.
@@ -43,7 +43,7 @@ function app_route_config($routeProvider) {
 	});
 }
 
-cougar_inn_app.config(app_route_config);
+cougarInnApp.config(app_route_config);
 
 function ReservationController($scope) {
 	$scope.reserve_room = function() {
@@ -60,7 +60,7 @@ function ReservationController($scope) {
 				alert("Confirmation number is " + confirmation);
 			}
 		});
-	}
+	};
 }
 
 function FeedbackController($scope) {
@@ -74,5 +74,5 @@ function FeedbackController($scope) {
 				alert(msg);
 			}
 		});
-	}
+	};
 }

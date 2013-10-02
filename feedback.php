@@ -3,7 +3,7 @@
 <!-- CISS298 Web Programming -->
 <!-- September 30 2013 -->
 <!-- feedback.php -->
-<?php
+<? php
   //get json from file
   if (!file_exists('feedback.json')) {
     file_put_contents('feedback.json', json_encode("{'feedback' : [{ }] }", JSON_UNESCAPED_UNICODE);
