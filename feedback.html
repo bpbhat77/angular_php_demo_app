@@ -1,6 +1,8 @@
 <div id="feedback">
+	<h2>Leave some feedback.</h2>
 	<form name='feedback_form'>
-	  <p>Enter you name: <input type='text' ng-model='new_feedback.name' size='25' /></p>
+	  <p>Enter you name:<br>
+	  	<input type='text' ng-model='new_feedback.name' size='25' /></p>
 	  <p>Enter you comments:<br>
 	    <textarea name='comments' ng-model='new_feedback.comment' rows='5' cols='40' >
 	    </textarea>
@@ -9,10 +11,9 @@
 	    <button ng-click='submit_feedback()' ng-disabled='!feedback_form.$valid'>Submit</button>
 	  </p>
 	</form>
-	<p>{{comments}}</p>
+	<h2>Comments</h2>
 	<div ng-repeat='comment in comments'>
 		<p>
-			<span>{{comment}}</span>
 			<span>{{comment.name}}:</span>
 			<span>"{{comment.comment}}"</span>
 		</p>

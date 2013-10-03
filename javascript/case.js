@@ -77,22 +77,33 @@ function ReservationController($scope) {
 
 function FeedbackController($scope) {
 	$scope.new_feedback = [{'name' : '', 'comment' : ''}];
-	$scope.comments = [{'name' : 'Someone', 'comment' : 'Something'}, {'name' : 'Another Person', 'comment' : 'And now for something completely different.'}];
 
-	$scope.submit_feedback = function() {
+	$scope.reset_fields = function() {
+		$scope.new_feedback.name = '';
+		$scope.new_feedback.comment = '';
+	};
+
+	$scope.get_comments = function(data) {
 		$.ajax({
 			dataType: 'json',
-			data: 	'name=' + $scope.new_feedback.name +
-					'&comment=' + $scope.new_feedback.comment,
+			data: 	data,
 			url: 	'test.php',
 			method: 'POST',
-			success: function(data) {
+			success: function(reply) {
 				$scope.$apply(function() {
-					$scope.comments = JSON.parse(data);
+					$scope.reset_fields();
+					$scope.comments = JSON.parse(reply);
 				});
 			}
 		});
 	};
+
+	$scope.submit_feedback = function() {
+		$data_in = 'name=' + $scope.new_feedback.name + '&comment=' + $scope.new_feedback.comment + '&update=true';
+		$scope.get_comments($data_in);
+	};
+
+	$scope.get_comments('update=false');
 }
 
 function DirectionsController($scope) {
