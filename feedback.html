@@ -9,8 +9,10 @@
 	    <button ng-click='submit_feedback()' ng-disabled='!feedback_form.$valid'>Submit</button>
 	  </p>
 	</form>
+	<p>{{comments}}</p>
 	<div ng-repeat='comment in comments'>
 		<p>
+			<span>{{comment}}</span>
 			<span>{{comment.name}}:</span>
 			<span>"{{comment.comment}}"</span>
 		</p>

@@ -77,7 +77,7 @@ function ReservationController($scope) {
 
 function FeedbackController($scope) {
 	$scope.new_feedback = [{'name' : '', 'comment' : ''}];
-	$scope.comments = [{'name' : 'Someone', 'comment' : 'Something'}];
+	$scope.comments = [{'name' : 'Someone', 'comment' : 'Something'}, {'name' : 'Another Person', 'comment' : 'And now for something completely different.'}];
 
 	$scope.submit_feedback = function() {
 		$.ajax({
@@ -88,8 +88,7 @@ function FeedbackController($scope) {
 			method: 'POST',
 			success: function(data) {
 				$scope.$apply(function() {
-					var comments = angular.fromJson(data);
-					$scope.comments = comments;
+					$scope.comments = JSON.parse(data);
 				});
 			}
 		});

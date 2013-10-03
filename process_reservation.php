@@ -17,7 +17,7 @@
 		error_log("Connected to DB sucessfully.", 0);
 		if (mysqli_select_db($conn, "hotel");) {
 			error_log("Selected hotel DB sucessfully.");
-			
+
 			$persist_reservation = "INSERT INTO  `hotel`.`reservations` (
 				`Name` ,
 				`Contact` ,
