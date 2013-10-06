@@ -1,3 +1,36 @@
 <div id="reservation">
-	<h2>reservation</h2>
+	<h2>Create a Reservation</h2>
+	<form name='reservation_form'>
+	  <p>Name:<br>
+	  	<input type='text' ng-model='new_reservation.name' ngMaxlength='30' size='25' /></p>
+	  <p>Contact Information:<br>
+	    <textarea name='comments' ng-model='new_reservation.contact' ngMaxlength='70' rows='5' cols='60' >
+	    </textarea>
+	  </p>
+	  <p>CheckIn:<br>
+	  	<input type='text' ng-model='new_reservation.checkin' size='25' datepicker /></p>
+	  <p>CheckOut:<br>
+	  	<input type='text' ng-model='new_reservation.checkout' size='25' datepicker /></p>
+	  <p>Room Type:<br>
+	  	<select ng-model='new_reservation.roomtype'>
+	  		<option selected>Standard Non-smoking</option>
+	  		<option>Double Nonsmoking</option>
+	  		<option>Standard Smoking</option>
+	  		<option>Double Smoking</option>
+	  	</select></p>
+	  <p>
+	    <button ng-click='reserve_room()' ng-disabled='!reservation_form.$valid'>Submit</button>
+	  </p>
+	</form>
+	<h2>Reservations</h2>
+	<p>{{reservations}}</p>
+	<div ng-repeat='reservation in reservations'>
+		<p>
+			<span>{{reservation.name}}</span>
+			<span>{{reservation.contact}}</span>
+			<span>{{reservation.checkin}}</span>
+			<span>{{reservation.checkout}}</span>
+			<span>{{reservation.roomtype}}</span>
+		</p>
+	</div>
 </div>

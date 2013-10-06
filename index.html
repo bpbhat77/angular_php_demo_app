@@ -5,15 +5,47 @@
 <!-- September 30 2013 -->
 <html ng-app="ciApp">
 	<head>
-		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-		<script src="javascript/case.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/case.css" rel="stylesheet">
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/0.7.4/angular-strap.min.js"></script>
+		<script src="js/xml2json.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/case.js"></script>
 	</head>
 	<body>
-		<!-- header view and navigation here -->
-		<div ng-view></div>
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<div class="page-header">
+						<h1>Header stuff here!</h2>
+							<p>More stuff about the hotel and sruff.</p>
+					</div>
+				</div>
+			</div>
+		    <div class="row">
+			    <div class="span3" ng-controlelr='navigation_controller'>
+					<div class="well sidebar-nav">
+					    <ul class="nav nav-list">
+					        <li ng-class="navClass('about_us')"><a href='about_us'>About Us</a></li>
+					        <li ng-class="navClass('contact_us')"><a href='contact_us'>Contact Us</a></li>
+					        <li ng-class="navClass('feedback')"><a href='feedback'>Feedback</a></li>
+					        <li ng-class="navClass('reservation')"><a href='reservation'>Reservation</a></li>
+					        <li ng-class="navClass('columbia_college')"><a href='columbia_college'>Columbia College</a></li>
+					        <li ng-class="navClass('around_columbia')"><a href='around_columbia'>Around Columbia</a></li>
+					        <li ng-class="navClass('directions')"><a href='directions'>Directions</a></li>
+					    </ul>
+					</div>
+				</div>
+				<div class="span9">
+					<div class="well well-large">
+						<div ng-view></div>
+					</p>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
