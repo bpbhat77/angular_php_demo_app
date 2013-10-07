@@ -22,10 +22,6 @@ angular.module('ciApp.service',[]).
 var single_page_app = angular.module('ciApp', ['ciApp.service', '$strap.directives']).
 	config(['$routeProvider', '$locationProvider', function app_route_config($routeProvider, $locationProvider) {
 		$routeProvider.
-			when('/', {
-				controller: HomeController,
-				templateUrl: 'main.html'
-			}).
 			when('/about_us', {
 				controller: AboutUsController,
 				templateUrl: 'about_us.html'
@@ -55,7 +51,7 @@ var single_page_app = angular.module('ciApp', ['ciApp.service', '$strap.directiv
 				templateUrl: 'contact_us.html'
 			}).
 			otherwise({
-				redirectTo: '/'
+				redirectTo: '/about_us'
 			});
 
 		$locationProvider.html5Mode(true);
